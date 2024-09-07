@@ -1,13 +1,13 @@
 import { Stack } from '@mui/material';
 import Grid from '@mui/material/Grid2';
-import HalfImage from '../components/HalfImage';
 import TitleAuth from '../components/TitleAuth';
-import InputLogin from '../components/InputLogin';
+import HalfImage from '../components/HalfImage';
+import InputRegister from '../components/InputRegister';
 
 const illustration = "https://firebasestorage.googleapis.com/v0/b/mostgreen.appspot.com/o/signin.jpg?alt=media&token=083affaa-5a32-48b3-b944-c77c5a44111b";
 const logo = "https://firebasestorage.googleapis.com/v0/b/mostgreen.appspot.com/o/OCA%20Indonesia.png?alt=media&token=658c5134-b37d-4dce-bb22-e7d20758b2ca";
 
-const SignIn = () => {
+const SignUp = () => {
     return (
         <Grid
             container
@@ -31,8 +31,8 @@ const SignIn = () => {
                     sx={{ py: { xs: 8, md: 0 } }}
                 >
                     <Stack spacing={2}>
-                        <TitleAuth logo={logo} title="Sign In" subtitle="Sign in to access your account" />
-                        <InputLogin />
+                        <TitleAuth logo={logo} title="Sign Up" subtitle="Sign up to create your account" />
+                        <InputRegister />
                     </Stack>
                 </Grid>
             </Grid>
@@ -54,4 +54,4 @@ const SignIn = () => {
     );
 };
 
-export default SignIn;
+export default SignUp;

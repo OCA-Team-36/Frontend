@@ -1,22 +1,9 @@
-import { Box, Button, Checkbox, FormControlLabel, IconButton, InputAdornment, InputLabel, OutlinedInput, Stack, Typography } from '@mui/material';
-import { useState } from 'react';
+import { Box, Button, Checkbox, FormControlLabel, InputLabel, OutlinedInput, Stack, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import QuestionAuth from './QuestionAuth';
+import InputPassword from './InputPassword';
 
 const InputLogin = () => {
-    const [showPassword, setShowPassword] = useState(false);
-
-    const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-    const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    };
-
-    const handleMouseUpPassword = (event) => {
-        event.preventDefault();
-    };
     return (
         <>
             <Stack spacing={2}>
@@ -25,24 +12,7 @@ const InputLogin = () => {
                     <OutlinedInput size="small" />
                 </Stack>
                 <Stack spacing={1}>
-                    <InputLabel>Password</InputLabel>
-                    <OutlinedInput
-                        size="small"
-                        id="standard-adornment-password"
-                        type={showPassword ? 'text' : 'password'}
-                        endAdornment={
-                            <InputAdornment position="end">
-                                <IconButton
-                                    aria-label="toggle password visibility"
-                                    onClick={handleClickShowPassword}
-                                    onMouseDown={handleMouseDownPassword}
-                                    onMouseUp={handleMouseUpPassword}
-                                >
-                                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                                </IconButton>
-                            </InputAdornment>
-                        }
-                    />
+                    <InputPassword />
                 </Stack>
                 <Box
                     sx={{
