@@ -5,9 +5,19 @@ const theme = createTheme({
     primary: {
       main: "#E81255"
     },
+    secondary: {
+      main: "#C8C8C8"
+    },
     background: {
-      default: "#F3F3F3",
-      netral: "#FFFFFF",
+      default: "#FFFFFF",
+      netral: "#F3F3F3",
+    },
+  },
+  typography: {
+    fontFamily: 'Inter, Arial',
+    button: {
+      fontFamily: 'Inter, Arial',
+      textTransform: 'none',
     },
   },
 });

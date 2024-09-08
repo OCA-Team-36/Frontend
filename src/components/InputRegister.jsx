@@ -24,7 +24,7 @@ const InputRegister = () => {
                 </Stack>
             </Stack>
             <Stack spacing={2}>
-                <Button variant="contained">Register</Button>
+                <Button variant="contained" sx={{ borderRadius: '5px' }}>Register</Button>
                 <QuestionAuth question="Already have an acoount?" link="/signin" text="Login" />
             </Stack>
         </>

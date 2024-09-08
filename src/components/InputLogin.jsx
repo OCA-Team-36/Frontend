@@ -26,7 +26,7 @@ const InputLogin = () => {
                 </Box>
             </Stack>
             <Stack spacing={2}>
-                <Button variant="contained">Login</Button>
+                <Button variant="contained" sx={{ borderRadius: '5px' }}>Login</Button>
                 <QuestionAuth question="Don’t have an acoount?" link="/signup" text="Register" />
             </Stack>
         </>
