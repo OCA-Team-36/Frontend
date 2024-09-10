@@ -12,6 +12,11 @@ const theme = createTheme({
       default: "#FFFFFF",
       netral: "#F3F3F3",
     },
+    grey: {
+      light: "#DDDDDD",
+      medium: "#C1C7D0",
+      bold: "#858585",
+    }
   },
   typography: {
     fontFamily: 'Inter, Arial',

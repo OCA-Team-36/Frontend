@@ -1,31 +1,54 @@
-import { Box, Button, Stack, Typography } from '@mui/material';
+import { useState, useEffect } from 'react';
 import Grid from '@mui/material/Grid2';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import { CheckBox } from '@mui/icons-material';
+import HeaderTitle from '../components/HeaderTitle';
+import HeaderImage from '../components/HeaderImage';
+import MyCampaignCard from '../components/MyCampaignCard';
+import MyReport from '../components/MyReport';
+import { Masonry } from '@mui/lab';
+import { Card, CardContent, Box, Stack } from '@mui/material';
+import CardTitle from '../components/CardTitle';
+import LinearProgressWithLabel from '../components/LinearProgressWithLabel';
+import AdsClickIcon from '@mui/icons-material/AdsClick';
+import DraftsIcon from '@mui/icons-material/Drafts';
+import EmailIcon from '@mui/icons-material/Email';
+import { useTheme } from '@emotion/react';
+import MyJourney from '../components/MyJourney';
+
 
 const people = "https://firebasestorage.googleapis.com/v0/b/mostgreen.appspot.com/o/People.png?alt=media&token=1e3eec67-2dae-4877-9141-3fa1f2cedb7a";
-const noresult = "https://firebasestorage.googleapis.com/v0/b/mostgreen.appspot.com/o/no-result.png?alt=media&token=5609aab0-7c65-472d-9573-3ba8ec34c2d7";
 
-const checked = [
-    {
-        id: 0,
-        text: "250 Email broadcast sent"
-    },
-    {
-        id: 1,
-        text: "125 whatsapp messages sent"
-    },
-    {
-        id: 2,
-        text: "125 emails opened"
-    },
-    {
-        id: 3,
-        text: "135 whatsapp messages opened"
-    },
-]
 const Dashboard = () => {
+    const theme = useTheme();
+    const [progress, setProgress] = useState(10);
+    const successData = [
+        {
+            id: 0,
+            title: "Klik Link",
+            icon: <AdsClickIcon sx={{ fontSize: 40, color: theme.palette.grey.medium }} />,
+            value: 50
+        },
+        {
+            id: 1,
+            title: "Opened",
+            icon: <DraftsIcon sx={{ fontSize: 40, color: theme.palette.grey.light }} />,
+            value: 60
+        },
+        {
+            id: 2,
+            title: "Not Opened",
+            icon: <EmailIcon sx={{ fontSize: 40, color: theme.palette.grey.bold }} />,
+            value: 70
+        }
+    ];
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setProgress((prevProgress) => (prevProgress >= 100 ? 10 : prevProgress + 10));
+        }, 800);
+        return () => {
+            clearInterval(timer);
+        };
+    }, []);
     return (
         <Grid container sx={{ pt: 7, pb: 5 }}>
             <Grid
@@ -36,53 +59,46 @@ const Dashboard = () => {
                     justifyContent: 'space-between'
                 }}
             >
-                <Stack spacing={1}>
-                    <Typography variant="h4" sx={{ fontWeight: '600' }}>
-                        Customize Your Communication <br />
-                        Services for Better Interaction
-                    </Typography>
-                    <Typography variant="body1">
-                        Choose products and create one complete package <br />
-                        that fits your business needs.
-                    </Typography>
-                </Stack>
-                <Box>
-                    <Button variant="contained" sx={{ borderRadius: 2 }}>New Campaign</Button>
-                </Box>
+                <HeaderTitle />
             </Grid>
             <Grid size={4} display="flex" justifyContent="center" alignItems="center">
-                <img src={people} alt="people" style={{ width: '250px', height: 'auto' }} />
+                <HeaderImage image={people} />
             </Grid>
-            <Grid size={6} sx={{ py: 3 }}>
-                {/* my campaign card */}
-                <Card elevation={2} sx={{ border: '1px solid', borderColor: 'secondary.main', borderRadius: 2 }}>
-                    <Grid container>
-                        <Grid size={7}>
+            <Grid container spacing={2} size={12}>
+                <Masonry columns={2} spacing={2}>
+                    <Grid size={6} sx={{ pt: 3 }}>
+                        {/* my campaign card */}
+                        <MyCampaignCard />
+                    </Grid>
+                    <Grid size={6} sx={{ pt: 3 }}>
+                        {/* my report */}
+                        <MyReport />
+                    </Grid>
+                    <Grid size={6}>
+                        {/* my report */}
+                        <Card elevation={2} sx={{ border: '1px solid', borderColor: 'secondary.main', borderRadius: 2 }}>
                             <CardContent>
-                                <Typography sx={{ color: '#000000', fontSize: 18, fontWeight: 600 }}>
-                                    My Campaign
-                                </Typography>
-                                <Stack spacing={0.5} sx={{ py: 2 }}>
-                                    {checked.map((c, index) => (
-                                        <Box key={index} sx={{ display: 'flex', alignItems: 'center' }}>
-                                            <CheckBox disabled checked size="small" color="secondary" />
-                                            <Typography variant="body2" sx={{ color: 'text.secondary', ml: 1 }}>
-                                                {c.text}
-                                            </Typography>
+                                <CardTitle title="My Success" />
+                                <Stack spacing={2} sx={{ pt: 2 }}>
+                                    {successData.map((s, index) => (
+                                        <Box key={s.id} sx={{ width: '100%' }}>
+                                            <LinearProgressWithLabel
+                                                index={index}
+                                                value={progress}
+                                                title={s.title}
+                                                icon={s.icon}
+                                            />
                                         </Box>
                                     ))}
                                 </Stack>
-                                <Button variant="contained" size="small" fullWidth sx={{ borderRadius: '5px' }}>See My Report</Button>
                             </CardContent>
-                        </Grid>
-                        <Grid size={5} display="flex" justifyContent="center" alignItems="center">
-                            <img src={noresult} alt="no result" style={{ width: '200px', height: 'auto' }} />
-                        </Grid>
+                        </Card>
                     </Grid>
-                </Card>
-            </Grid>
-            <Grid size={6}>
-
+                    <Grid size={6}>
+                        {/* my journey */}
+                        <MyJourney />
+                    </Grid>
+                </Masonry>
             </Grid>
         </Grid>
     );

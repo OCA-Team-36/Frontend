@@ -6,6 +6,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { Speed, Add, Person, Assignment, Logout } from '@mui/icons-material';
+import { useLocation } from 'react-router';
 
 const menu = [
     {
@@ -38,22 +39,41 @@ const menu = [
         icon: <Logout sx={{ color: '#000000' }} />,
         link: "#"
     },
-]
+];
+
 const DrawerMenu = () => {
+    const location = useLocation()
     return (
         <Box sx={{ overflow: 'auto' }}>
             <List>
-                {menu.map((m, index) => (
-                    <ListItem key={index} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {m.icon}
-                            </ListItemIcon>
-                            <ListItemText primary={m.text} sx={{ fontWeight: 'bold' }} primaryTypographyProps={{ sx: { fontWeight: 600 } }} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
+                {menu.map((m, index) => {
+                    const isActive = location.pathname === m.path;
+                    return (
+                        <ListItem key={index} disablePadding>
+                            <ListItemButton
+                                sx={{
+                                    backgroundColor: isActive ? 'primary.main' : 'inherit',
+                                    '&:hover': { backgroundColor: isActive ? 'primary.dark' : 'rgba(0, 0, 0, 0.04)' }
+                                }}
+                            >
+                                <ListItemIcon sx={{ color: isActive ? 'primary.contrastText' : 'text.primary' }}>
+                                    {m.icon}
+                                </ListItemIcon>
+                                <ListItemText
+                                    primary={m.text}
+                                    primaryTypographyProps={{
+                                        sx: {
+                                            fontWeight: isActive ? 'bold' : 'normal',
+                                            color: isActive ? 'primary.contrastText' : 'text.primary'
+                                        }
+                                    }}
+                                />
+                            </ListItemButton>
+                        </ListItem>
+                    );
+                })}
             </List>
+
         </Box>
     );
 };

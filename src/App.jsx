@@ -36,7 +36,7 @@ function App() {
           <Box
             component="main"
             sx={{
-              flexGrow: 1, 
+              flexGrow: 1,
               p: 3,
             }}
           >
@@ -44,11 +44,12 @@ function App() {
             {/* <Router /> */}
             <Routes>
               <Route path="/" element={<Dashboard />} />
+              <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
           </Box>
         </Box>
       )}
-      
+
       <Routes>
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />

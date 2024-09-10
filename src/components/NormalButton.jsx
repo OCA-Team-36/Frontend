@@ -3,7 +3,7 @@ import { Button } from '@mui/material';
 
 const NormalButton = ({ text }) => {
     return (
-        <Button variant="contained" sx={{ borderRadius: '5px' }}>
+        <Button variant="contained"  disableElevation sx={{ borderRadius: '5px' }}>
             {text}
         </Button>
     );

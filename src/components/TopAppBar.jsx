@@ -31,7 +31,7 @@ const TopAppBar = () => {
             >
                 <img src={logo} alt="logo" style={{ width: '150px', height: 'auto' }} />
                 <Box>
-                    <Button variant="contained" onClick={onLogin} sx={{ borderRadius: '10px' }}>Login</Button>
+                    <Button variant="contained" onClick={onLogin} disableElevation sx={{ borderRadius: '10px' }}>Login</Button>
                 </Box>
             </Box>
         </AppBar>
