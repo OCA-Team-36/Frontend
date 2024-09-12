@@ -6,14 +6,14 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { Speed, Add, Person, Assignment, Logout } from '@mui/icons-material';
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 const menu = [
     {
         id: 0,
         text: "Dashboard",
         icon: <Speed sx={{ color: '#000000' }} />,
-        link: "#"
+        link: "/dashboard"
     },
     {
         id: 1,
@@ -42,19 +42,21 @@ const menu = [
 ];
 
 const DrawerMenu = () => {
-    const location = useLocation()
+    const location = useLocation();
+    const navigate = useNavigate();
     return (
         <Box sx={{ overflow: 'auto' }}>
             <List>
                 {menu.map((m, index) => {
-                    const isActive = location.pathname === m.path;
+                    const isActive = location.pathname === m.link;
                     return (
                         <ListItem key={index} disablePadding>
                             <ListItemButton
                                 sx={{
-                                    backgroundColor: isActive ? 'primary.main' : 'inherit',
-                                    '&:hover': { backgroundColor: isActive ? 'primary.dark' : 'rgba(0, 0, 0, 0.04)' }
+                                    backgroundColor: 'inherit',
+                                    '&:hover': { backgroundColor: 'rgba(0, 0, 0, 0.04)' }
                                 }}
+                                onClick={() => navigate(m.link)}
                             >
                                 <ListItemIcon sx={{ color: isActive ? 'primary.contrastText' : 'text.primary' }}>
                                     {m.icon}
@@ -64,7 +66,7 @@ const DrawerMenu = () => {
                                     primaryTypographyProps={{
                                         sx: {
                                             fontWeight: isActive ? 'bold' : 'normal',
-                                            color: isActive ? 'primary.contrastText' : 'text.primary'
+                                            color: isActive ? 'primary.main' : 'text.primary'
                                         }
                                     }}
                                 />
@@ -73,7 +75,6 @@ const DrawerMenu = () => {
                     );
                 })}
             </List>
-
         </Box>
     );
 };

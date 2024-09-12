@@ -1,10 +1,18 @@
-// import PropTypes from 'prop-types';
-
 import { Box, Card, CardContent, Stack, Typography } from "@mui/material";
 import CardTitle from "./CardTitle";
 import LinearProgressWithLabel from "./LinearProgressWithLabel";
+import { useEffect, useState } from "react";
 
 const MyJourney = () => {
+    const [progress, setProgress] = useState(10);
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setProgress((prevProgress) => (prevProgress >= 100 ? 10 : prevProgress + 10));
+        }, 800);
+        return () => {
+            clearInterval(timer);
+        };
+    }, []);
     return (
         <div>
             <Card sx={{ border: '1px solid', borderColor: 'secondary.main', borderRadius: 2 }}>
@@ -17,10 +25,11 @@ const MyJourney = () => {
                             </Typography>
                             <Box sx={{ width: '100%' }}>
                                 <LinearProgressWithLabel
-                                    value={80}
+                                    value={progress}
                                     title="To Complete"
                                     marginLeft={0}
                                     fontWeight="bold"
+                                    fontColor="#000000"
                                 />
                             </Box>
                         </Stack>

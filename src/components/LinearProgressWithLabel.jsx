@@ -16,7 +16,7 @@ function LinearProgressWithLabel(props) {
                         <Typography variant="body2" sx={{ color: '#000000', fontSize: 18, fontWeight: 'bold' }}>
                             {`${Math.round(props.value)}%`}
                         </Typography>
-                        <Typography variant="body2" sx={{ color: 'text.secondary', fontSize: 15, fontWeight: props.fontWeight, ml: 1 }}>
+                        <Typography variant="body2" sx={{ color: props.fontColor, fontSize: 15, fontWeight: props.fontWeight, ml: 1 }}>
                             {props.title}
                         </Typography>
                     </Box>
@@ -39,11 +39,13 @@ LinearProgressWithLabel.propTypes = {
     title: PropTypes.string.isRequired,
     marginLeft: PropTypes.number,
     fontWeight: PropTypes.string,
+    fontColor: PropTypes.string,
 };
 
 LinearProgressWithLabel.defaultProps = {
     marginLeft: 1,
-    fontWeight: 'normal'
+    fontWeight: 'normal',
+    fontColor: 'text.secondary'
 };
 
 export default LinearProgressWithLabel;

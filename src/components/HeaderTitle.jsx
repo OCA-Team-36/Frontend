@@ -4,7 +4,7 @@ const HeaderTitle = () => {
     return (
         <>
             <Stack spacing={1}>
-                <Typography variant="h4" sx={{ fontWeight: '600' }}>
+                <Typography sx={{ typography: { xs: 'h5', md: 'h4' }, fontWeight: { xs: '600', md: '600' }, }}>
                     Customize Your Communication <br />
                     Services for Better Interaction
                 </Typography>
@@ -13,7 +13,7 @@ const HeaderTitle = () => {
                     that fits your business needs.
                 </Typography>
             </Stack>
-            <Box>
+            <Box sx={{ pt: { xs: 4, md: 0 } }}>
                 <Button variant="contained" disableElevation sx={{ borderRadius: 2 }}>New Campaign</Button>
             </Box>
         </>
