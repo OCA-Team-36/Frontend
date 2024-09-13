@@ -31,7 +31,7 @@ const MyCampaignCard = () => {
     return (
         <Card elevation={2} sx={{ border: '1px solid', borderColor: 'secondary.main', borderRadius: 2 }}>
             <Grid container>
-                <Grid size={7}>
+                <Grid size={{ xs: 12, md: 7 }}>
                     <CardContent>
                         <CardTitle title="My Campaign" />
                         <Stack spacing={0.5} sx={{ py: 2 }}>
@@ -47,7 +47,7 @@ const MyCampaignCard = () => {
                         <Button variant="contained" size="small" disableElevation fullWidth sx={{ borderRadius: '5px' }}>See My Report</Button>
                     </CardContent>
                 </Grid>
-                <Grid size={5} display="flex" justifyContent="center" alignItems="center">
+                <Grid size={5} display={{ xs: 'none', md: 'flex' }} justifyContent="center" alignItems="center">
                     <img src={noresult} alt="no result" style={{ width: '200px', height: 'auto' }} />
                 </Grid>
             </Grid>

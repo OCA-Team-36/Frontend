@@ -19,7 +19,7 @@ const menu = [
         id: 1,
         text: "New Campaign",
         icon: <Add sx={{ color: '#000000' }} />,
-        link: "#"
+        link: "/campaign"
     },
     {
         id: 2,

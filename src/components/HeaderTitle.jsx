@@ -1,23 +1,33 @@
-import { Box, Button, Stack, Typography } from '@mui/material';
+import PropTypes from 'prop-types';
+import { Box, Stack, Typography } from '@mui/material';
 
-const HeaderTitle = () => {
+const HeaderTitle = ({ title, subtitle, mdWidth }) => {
     return (
         <>
             <Stack spacing={1}>
-                <Typography sx={{ typography: { xs: 'h5', md: 'h4' }, fontWeight: { xs: '600', md: '600' }, }}>
-                    Customize Your Communication <br />
-                    Services for Better Interaction
-                </Typography>
-                <Typography variant="body1">
-                    Choose products and create one complete package <br />
-                    that fits your business needs.
-                </Typography>
+                <Box width={{ xs: '100%', md: '80%' }}>
+                    <Typography sx={{ typography: { xs: 'h5', md: 'h4' }, fontWeight: { xs: '600', md: '600' }, }}>
+                        {title}
+                    </Typography>
+                </Box>
+                <Box width={{ xs: '100%', md: mdWidth }}>
+                    <Typography variant="body1">
+                        {subtitle}
+                    </Typography>
+                </Box>
             </Stack>
-            <Box sx={{ pt: { xs: 4, md: 0 } }}>
-                <Button variant="contained" disableElevation sx={{ borderRadius: 2 }}>New Campaign</Button>
-            </Box>
         </>
     );
+};
+
+HeaderTitle.propTypes = {
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    mdWidth: PropTypes.string,
+};
+
+HeaderTitle.defaultProps = {
+    mdWidth: '60%',
 };
 
 export default HeaderTitle;

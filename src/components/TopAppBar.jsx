@@ -36,7 +36,7 @@ const TopAppBar = () => {
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                     alignItems: 'center',
-                    px: 5,
+                    px: { xs: 3.5, md: 5 },
                     py: 0.5,
                 }}
             >
