@@ -25,6 +25,26 @@ const theme = createTheme({
       textTransform: 'none',
     },
   },
+  components: {
+    MuiAutocomplete: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: '#C8C8C8',
+        },
+        listbox: {
+          backgroundColor: '#F3F3F3', 
+          '& .MuiAutocomplete-option': {
+            '&:hover': {
+              backgroundColor: '#E0E0E0', 
+            },
+            '&[aria-selected="true"]': {
+              backgroundColor: '#E81255',
+            },
+          },
+        },
+      },
+    },
+  },
 });
 
 export default theme;
