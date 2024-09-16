@@ -1,0 +1,19 @@
+.ql-toolbar {
+    border-radius: 15px 15px 0px 0px;
+}
+
+.ql-toolbar button:hover {
+    background-color: #e6e6e6;
+    border-radius: 15px;
+}
+
+.ql-container {
+    border: 1px solid #ddd;
+    border-radius: 0px 0px 15px 15px;
+    padding: 10px;
+}
+
+.ql-editor {
+    min-height: 200px;
+    padding: 10px;
+}

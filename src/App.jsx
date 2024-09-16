@@ -10,6 +10,7 @@ import SignUp from './pages/SignUp';
 import Dashboard from './pages/Dashboard';
 import { useState } from "react";
 import NewCampaign from "./pages/NewCampaign";
+import CreateTemplate from "./pages/CreateTemplate";
 
 const drawerWidth = 240;
 
@@ -78,7 +79,9 @@ function App() {
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/campaign" element={<NewCampaign />} />
+              <Route path="/campaign" element={<NewCampaign />}>
+                <Route path="create-template" element={<CreateTemplate />} />
+              </Route>
             </Routes>
           </Box>
         </Box>

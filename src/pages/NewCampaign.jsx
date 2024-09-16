@@ -16,9 +16,7 @@ const NewCampaign = () => {
     return (
         <Grid container spacing={2} sx={{ pt: 7, pb: 5, width: '100%' }}>
             <Grid size={12}>
-                <Box>
-                    <HeaderTitle title={title} subtitle={subtitle} mdWidth={mdWidth} />
-                </Box>
+                <HeaderTitle title={title} subtitle={subtitle} mdWidth={mdWidth} />
             </Grid>
             <Grid size={12}>
                 <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: { xs: 'flex-start', md: 'center' }, gap: { xs: 1, md: 2 }, pt: { xs: 2, md: 1 } }}>
@@ -53,8 +51,8 @@ const NewCampaign = () => {
                     </FormControl>
                 </Box>
             </Grid>
-            <Grid size={12} display="flex" justifyContent="flex-end" alignItems="flex-end">
-                <Box sx={{ pt: 5, pr: { xs: 0, md: 3 } }}>
+            <Grid size={12} display="flex" justifyContent="flex-start" alignItems="center">
+                <Box sx={{ pt: 3, width: { xs: '100%', md: '90%' }, display: 'flex', justifyContent: 'flex-end' }}>
                     <StepButton text1="Back" text2="Next" />
                 </Box>
             </Grid>
