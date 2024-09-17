@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router';
 import Grid from '@mui/material/Grid2';
 import HeaderTitle from '../components/HeaderTitle';
 import { Autocomplete, Box, FormControl, OutlinedInput, RadioGroup, Stack, TextField } from '@mui/material';
@@ -13,6 +14,10 @@ const emailLogo = "https://firebasestorage.googleapis.com/v0/b/mostgreen.appspot
 const whatsappLogo = "https://firebasestorage.googleapis.com/v0/b/mostgreen.appspot.com/o/logo%20whatsapp%202--.png?alt=media&token=d784c475-9cf5-44ee-a22c-d3a8974c09b7";
 
 const NewCampaign = () => {
+    const navigate = useNavigate();
+    const nextButton = () => {
+        navigate('/create-template')
+    }
     return (
         <Grid container spacing={2} sx={{ pt: 7, pb: 5, width: '100%' }}>
             <Grid size={12}>
@@ -53,7 +58,7 @@ const NewCampaign = () => {
             </Grid>
             <Grid size={12} display="flex" justifyContent="flex-start" alignItems="center">
                 <Box sx={{ pt: 3, width: { xs: '100%', md: '90%' }, display: 'flex', justifyContent: 'flex-end' }}>
-                    <StepButton text1="Back" text2="Next" />
+                    <StepButton text1="Back" text2="Next" click2={nextButton} />
                 </Box>
             </Grid>
         </Grid>

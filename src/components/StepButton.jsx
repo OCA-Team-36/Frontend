@@ -13,8 +13,8 @@ const StepButton = ({ text1, text2, click1, click2 }) => {
 StepButton.propTypes = {
     text1:  PropTypes.string.isRequired,
     text2: PropTypes.string.isRequired,
-    click1: PropTypes.func.isRequired,
-    click2: PropTypes.func.isRequired,
+    click1: PropTypes.func,
+    click2: PropTypes.func,
 };
 
 export default StepButton;

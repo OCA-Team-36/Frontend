@@ -79,9 +79,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/campaign" element={<NewCampaign />}>
-                <Route path="create-template" element={<CreateTemplate />} />
-              </Route>
+              <Route path="/campaign" element={<NewCampaign />} />
+              <Route path="/create-template" element={<CreateTemplate />} />
             </Routes>
           </Box>
         </Box>
