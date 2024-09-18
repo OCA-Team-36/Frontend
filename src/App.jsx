@@ -11,6 +11,7 @@ import Dashboard from './pages/Dashboard';
 import { useState } from "react";
 import NewCampaign from "./pages/NewCampaign";
 import CreateTemplate from "./pages/CreateTemplate";
+import ReviewTemplate from "./pages/ReviewTemplate";
 
 const drawerWidth = 240;
 
@@ -81,6 +82,7 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/campaign" element={<NewCampaign />} />
               <Route path="/create-template" element={<CreateTemplate />} />
+              <Route path="/review-template" element={<ReviewTemplate/>} />
             </Routes>
           </Box>
         </Box>

@@ -22,7 +22,7 @@ const HeaderTitle = ({ title, subtitle, mdWidth }) => {
 
 HeaderTitle.propTypes = {
     title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
     mdWidth: PropTypes.string,
 };
 
