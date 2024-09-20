@@ -3,6 +3,9 @@ import Grid from '@mui/material/Grid2';
 import HeaderTitle from '../components/HeaderTitle';
 import StepButton from '../components/StepButton';
 import { useNavigate } from 'react-router';
+import { useState } from 'react';
+import AlertConfirm from '../components/AlertConfirm';
+// import CloseIcon from '@mui/icons-material/Close';
 
 const title = "New Campaign";
 const subtitle = "Make your new Campaign. Choose one!";
@@ -13,6 +16,20 @@ const ReviewTemplate = () => {
 
     const click1 = () => {
         navigate('/create-template')
+    }
+
+    const [open, setOpen] = useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const yesClick = () => {
+        navigate("/campaign-report");
     }
 
     return (
@@ -33,13 +50,22 @@ const ReviewTemplate = () => {
                     multiline
                     rows={8}
                     defaultValue={defaultValue}
-                    sx={{ py: 1, width: { xs: '100%', md: '90%' } }}
+                    sx={{
+                        py: 1,
+                        width: { xs: '100%', md: '90%' },
+                        '& .MuiOutlinedInput-root': {
+                            borderRadius: '15px',
+                        },
+                    }}
                 />
             </Grid>
             <Grid size={12} display="flex" justifyContent="flex-start" alignItems="center">
                 <Box sx={{ pt: 3, width: { xs: '100%', md: '90%' }, display: 'flex', justifyContent: 'flex-end' }}>
-                    <StepButton text1="Back" text2="Next" click1={click1}/>
+                    <StepButton text1="Back" text2="Next" click1={click1} click2={handleClickOpen}/>
                 </Box>
+            </Grid>
+            <Grid size={12} display="flex" justifyContent="flex-start" alignItems="center">
+                <AlertConfirm yesClick={yesClick} open={open} handleClose={handleClose}/>
             </Grid>
         </Grid>
     );
