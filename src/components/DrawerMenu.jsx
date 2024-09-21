@@ -48,7 +48,8 @@ const DrawerMenu = () => {
         <Box sx={{ overflow: 'auto' }}>
             <List>
                 {menu.map((m, index) => {
-                    const isActive = location.pathname === m.link;
+                    // const isActive = location.pathname === m.link;
+                    const isActive = location.pathname.startsWith(m.link);
                     return (
                         <ListItem key={index} disablePadding>
                             <ListItemButton

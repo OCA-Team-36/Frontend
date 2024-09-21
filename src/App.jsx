@@ -82,9 +82,9 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/campaign" element={<NewCampaign />} />
-              <Route path="/create-template" element={<CreateTemplate />} />
-              <Route path="/review-template" element={<ReviewTemplate />} />
-              <Route path="/campaign-report" element={<CampaignReport />} />
+              <Route path="/campaign/create-template" element={<CreateTemplate />} />
+              <Route path="/campaign/review-template" element={<ReviewTemplate />} />
+              <Route path="/campaign/campaign-report" element={<CampaignReport />} />
             </Routes>
           </Box>
         </Box>

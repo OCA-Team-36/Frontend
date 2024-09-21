@@ -25,7 +25,7 @@ const CreateTemplate = () => {
     };
 
     const handleClose = () => {
-        navigate('/review-template');
+        navigate('/campaign/review-template');
     };
 
     return (

@@ -15,7 +15,7 @@ const ReviewTemplate = () => {
     const navigate = useNavigate();
 
     const click1 = () => {
-        navigate('/create-template')
+        navigate('/campaign/create-template')
     }
 
     const [open, setOpen] = useState(false);
@@ -29,7 +29,7 @@ const ReviewTemplate = () => {
     };
 
     const yesClick = () => {
-        navigate("/campaign-report");
+        navigate("/campaign/campaign-report");
     }
 
     return (

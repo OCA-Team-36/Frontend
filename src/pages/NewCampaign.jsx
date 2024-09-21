@@ -16,7 +16,7 @@ const whatsappLogo = "https://firebasestorage.googleapis.com/v0/b/mostgreen.apps
 const NewCampaign = () => {
     const navigate = useNavigate();
     const nextButton = () => {
-        navigate('/create-template')
+        navigate('/campaign/create-template')
     }
     return (
         <Grid container spacing={2} sx={{ pt: 7, pb: 5, width: '100%' }}>

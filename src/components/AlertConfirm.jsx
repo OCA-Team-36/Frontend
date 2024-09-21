@@ -1,20 +1,24 @@
 import PropTypes from 'prop-types';
-import { Box, Button, Dialog, DialogContent, Stack, Typography } from '@mui/material';
+import { forwardRef } from 'react';
+import { Box, Button, Dialog, DialogContent, Slide, Stack, Typography } from '@mui/material';
+
+const Transition = forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
 
 const AlertConfirm = ({yesClick, open, handleClose}) => {
     return (
         <Dialog
             open={open}
             onClose={handleClose}
+            TransitionComponent={Transition}
+            keepMounted
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
             PaperProps={{ sx: { height: { xs: '25%', md: '30%' }, width: { xs: '80%', md: '30%' }, borderRadius: '15px' } }}
         >
             <DialogContent>
                 <Box sx={{ display: 'flex', height: '100%', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                    {/* <Box sx={{ display: 'flex', width: '100%', justifyContent: 'flex-end', alignItems: 'center'}}>
-                                <CloseIcon />
-                            </Box> */}
                     <Stack spacing={{ xs: 5, md: 6 }} >
                         <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Are You Sure ?</Typography>
                         <Stack direction="row" spacing={1}>
