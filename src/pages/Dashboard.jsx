@@ -7,12 +7,18 @@ import { Masonry } from '@mui/lab';
 import MyJourney from '../components/MyJourney';
 import MySuccess from '../components/MySuccess';
 import { Box, Button } from '@mui/material';
+import { useNavigate } from 'react-router';
 
 const people = "https://firebasestorage.googleapis.com/v0/b/mostgreen.appspot.com/o/People.png?alt=media&token=1e3eec67-2dae-4877-9141-3fa1f2cedb7a";
 const title = "Customize Your Communication Services For Better Interaction";
 const subtitle = "Choose products and create one complete package that fits your business needs.";
 
 const Dashboard = () => {
+    const navigate = useNavigate();
+
+    const campaign = () => {
+        navigate("/campaign")
+    }
     return (
         <Grid container sx={{ pt: 7, pb: 5 }} >
             <Grid
@@ -25,7 +31,7 @@ const Dashboard = () => {
             >
                 <HeaderTitle title={title} subtitle={subtitle} />
                 <Box sx={{ pt: { xs: 4, md: 0 } }}>
-                    <Button variant="contained" disableElevation sx={{ borderRadius: 2 }}>New Campaign</Button>
+                    <Button variant="contained" disableElevation sx={{ borderRadius: 2 }} onClick={campaign}>New Campaign</Button>
                 </Box>
             </Grid>
             <Grid container size={{ xs: 12, md: 4 }} display="flex" justifyContent="center" alignItems="center">
